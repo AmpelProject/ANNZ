@@ -104,7 +104,7 @@ class OptMaps {
     inline bool     OptOrNullB(TString aName) { return (HasOptB(aName) ? optB[aName] : DefOpts::NullB); }
     inline int      OptOrNullI(TString aName) { return (HasOptI(aName) ? optI[aName] : DefOpts::NullI); }
     inline double   OptOrNullF(TString aName) { return (HasOptF(aName) ? optF[aName] : DefOpts::NullD); }
-    inline TString  OptOrNullC(TString aName) { return (HasOptC(aName) ? optC[aName] : DefOpts::NullC); }
+    inline TString  OptOrNullC(TString aName) { return (HasOptC(aName) ? optC[aName] : TString(DefOpts::NullC)); }
 
     inline bool     HasOptB(TString aName) { return (optB.find(aName) != optB.end()); }
     inline bool     HasOptI(TString aName) { return (optI.find(aName) != optI.end()); }

@@ -112,16 +112,16 @@ namespace std {
 // (needs namespace in order to use values in default initialization of OptMaps functions)
 // -----------------------------------------------------------------------------------------------------------
 namespace DefOpts {
-  Bool_t    DefB  = false;                                           Bool_t    NullB  = false;
-  TString   DefC  = "";                                              TString   NullC  = "";
-  Short_t   DefS  = std::numeric_limits<short int>         ::max();  Short_t   NullS  = 0;
-  Int_t     DefI  = std::numeric_limits<int>               ::max();  Int_t     NullI  = 0;
-  Long64_t  DefL  = std::numeric_limits<long int>          ::max();  Long64_t  NullL  = 0;
-  UShort_t  DefUS = std::numeric_limits<unsigned short int>::max();  UShort_t  NullUS = 0;
-  UInt_t    DefUI = std::numeric_limits<unsigned int>      ::max();  UInt_t    NullUI = 0;
-  ULong64_t DefUL = std::numeric_limits<unsigned long int> ::max();  ULong64_t NullUL = 0;
-  Float_t   DefF  = std::numeric_limits<float>             ::max();  Float_t   NullF  = 0;
-  Double_t  DefD  = std::numeric_limits<double>            ::max();  Double_t  NullD  = 0;
+  constexpr Bool_t    DefB  = false;                                           constexpr Bool_t    NullB  = false;
+  constexpr const char* DefC  = "";                                              constexpr const char*   NullC  = "";
+  constexpr Short_t   DefS  = std::numeric_limits<short int>         ::max();  constexpr Short_t   NullS  = 0;
+  constexpr Int_t     DefI  = std::numeric_limits<int>               ::max();  constexpr Int_t     NullI  = 0;
+  constexpr Long64_t  DefL  = std::numeric_limits<long int>          ::max();  constexpr Long64_t  NullL  = 0;
+  constexpr UShort_t  DefUS = std::numeric_limits<unsigned short int>::max();  constexpr UShort_t  NullUS = 0;
+  constexpr UInt_t    DefUI = std::numeric_limits<unsigned int>      ::max();  constexpr UInt_t    NullUI = 0;
+  constexpr ULong64_t DefUL = std::numeric_limits<unsigned long int> ::max();  constexpr ULong64_t NullUL = 0;
+  constexpr Float_t   DefF  = std::numeric_limits<float>             ::max();  constexpr Float_t   NullF  = 0;
+  constexpr Double_t  DefD  = std::numeric_limits<double>            ::max();  constexpr Double_t  NullD  = 0;
 }
 
 
@@ -130,17 +130,17 @@ namespace DefOpts {
 // namespace for sorting logic functions
 // ===========================================================================================================
 namespace sortFunc {
-  bool highToLowI(int a, int b) { return (a > b); }
-  bool lowToHighI(int a, int b) { return (a < b); }
+  inline bool highToLowI(int a, int b) { return (a > b); }
+  inline bool lowToHighI(int a, int b) { return (a < b); }
 
-  bool highToLowD(double a, double b) { return (a > b); }
-  bool lowToHighD(double a, double b) { return (a < b); }
+  inline bool highToLowD(double a, double b) { return (a > b); }
+  inline bool lowToHighD(double a, double b) { return (a < b); }
 
   namespace pairID {
     // bool highToLowBy0 (pair<int,double> a, pair<int,double> b) { return (a.first  > b.first ); }
     // bool lowToHighBy0 (pair<int,double> a, pair<int,double> b) { return (a.first  < b.first ); }
-    bool highToLowBy1(pair<int,double> a, pair<int,double> b) { return (a.second > b.second); }
-    bool lowToHighBy1(pair<int,double> a, pair<int,double> b) { return (a.second < b.second); }
+    inline bool highToLowBy1(pair<int,double> a, pair<int,double> b) { return (a.second > b.second); }
+    inline bool lowToHighBy1(pair<int,double> a, pair<int,double> b) { return (a.second < b.second); }
 
     struct equalToFirst {
       int b;
@@ -157,20 +157,20 @@ namespace sortFunc {
 // -----------------------------------------------------------------------------------------------------------
 #define UseCoutCol true
 namespace CoutCols {
-  TString CT                = " \t ";
-  TString coutDef           = UseCoutCol ? "\033[0m"      : "";
-  TString coutRed           = UseCoutCol ? "\033[31m"     : "";
-  TString coutGreen         = UseCoutCol ? "\033[32m"     : "";
-  TString coutBlue          = UseCoutCol ? "\033[34m"     : "";
-  TString coutLightBlue     = UseCoutCol ? "\033[94m"     : "";
-  TString coutYellow        = UseCoutCol ? "\033[33m"     : "";
-  TString coutPurple        = UseCoutCol ? "\033[35m"     : "";
-  TString coutCyan          = UseCoutCol ? "\033[36m"     : "";
-  TString coutUnderLine     = UseCoutCol ? "\033[4;30m"   : "";
-  TString coutWhiteOnBlack  = UseCoutCol ? "\33[40;37;1m" : "";
-  TString coutWhiteOnRed    = UseCoutCol ? "\33[41;37;1m" : "";
-  TString coutWhiteOnGreen  = UseCoutCol ? "\33[42;37;1m" : "";
-  TString coutWhiteOnYellow = UseCoutCol ? "\33[43;37;1m" : "";
+  constexpr const char* CT                = " \t ";
+  constexpr const char* coutDef           = "\033[0m"     ;
+  constexpr const char* coutRed           = "\033[31m"    ;
+  constexpr const char* coutGreen         = "\033[32m"    ;
+  constexpr const char* coutBlue          = "\033[34m"    ;
+  constexpr const char* coutLightBlue     = "\033[94m"    ;
+  constexpr const char* coutYellow        = "\033[33m"    ;
+  constexpr const char* coutPurple        = "\033[35m"    ;
+  constexpr const char* coutCyan          = "\033[36m"    ;
+  constexpr const char* coutUnderLine     = "\033[4;30m"  ;
+  constexpr const char* coutWhiteOnBlack  = "\33[40;37;1m";
+  constexpr const char* coutWhiteOnRed    = "\33[41;37;1m";
+  constexpr const char* coutWhiteOnGreen  = "\33[42;37;1m";
+  constexpr const char* coutWhiteOnYellow = "\33[43;37;1m";
 }
 
 using CoutCols::CT;

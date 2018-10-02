@@ -5,7 +5,7 @@ import os,logging
 # if [useDefinedROOTSYS == True] and $ROOTSYS is defined, then rootHome will be ignored - see initROOT() in helperFuncs.py
 useDefinedROOTSYS = True
 # if set, rootHome must be the absolute path to the directory where ROOT is installed
-rootHome          = ""
+rootHome          = "@ROOT_PREFIX@"
 # --------------------------------------------------------------------------------------------------
 
 pars         = dict()

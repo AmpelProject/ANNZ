@@ -237,7 +237,7 @@ def doMake():
   if isMake:
     log.info(blue(" - Moving to ")+red(glob.libDirName)+blue(" and compiling ANNZ... "))
     mkfl = os.path.join(glob.annzDir,'Makefile')
-    cmnd = "cd "+glob.libDirName+" ; make "+glob.makeOpt+" -f "+mkfl
+    cmnd = "cd "+glob.libDirName+"/../ ; cmake .; make"
     cmkdStatus = os.system(cmnd) ; Assert("compilation failed",(cmkdStatus == 0))
 
     if os.path.isfile(glob.exeName): log.info(blue(" - Found ")+red(glob.exeName)+blue(" - compilation seems to have succeded... "))
